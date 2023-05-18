@@ -42,6 +42,9 @@ button{
   font-size: inherit;
   font-weight: inherit;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 input, textarea{

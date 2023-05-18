@@ -1,0 +1,28 @@
+header{
+  background-color: black;
+  margin-bottom: 25px;
+  height: 70px;
+  max-height: 70px;
+  justify-content: center;
+  align-items: center;
+}
+
+header .searcher{
+  width: 60%;
+  position: relative;
+  align-items: center;
+}
+
+header .searcher input{
+  width: 100%;
+  height: 30px;
+  padding: 0 40px 0 15px;
+  font-size: 14px;
+}
+
+header .searcher svg{
+  position: absolute;
+  color: var(--color-gray);
+  right: 10px;
+  font-size: 1.2rem;
+}
