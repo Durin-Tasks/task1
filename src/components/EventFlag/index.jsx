@@ -1,10 +1,10 @@
 import React from 'react'
-import './style'
+import './style.css'
 
 const EventFlag = () => {
   return (
-    <div>
-      Event Flag
+    <div className='event-flag'>
+      EVENTS
     </div>
   )
 }

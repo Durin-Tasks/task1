@@ -2,17 +2,23 @@
   padding: 25px 15px;
   margin: auto;
   border-bottom: solid 1px var(--color-gray);
-  max-width: fit-content;
+  width: 70%;
+}
+
+.event:last-child{
+  border-bottom: unset;
 }
 
 .event .event--infos{
   align-items: center;
   gap: 30px;
   margin: auto;
+  width: 100%;
 }
 
 .event .event--infos--date{
   flex: 1;
+  justify-content: flex-start;
 }
 
 .event .event--infos--date h1{

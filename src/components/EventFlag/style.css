@@ -1,0 +1,9 @@
+.event-flag{
+  color: var(--color-primary);
+  background-color: var(--color-white);
+  max-width: fit-content;
+  margin: auto;
+  padding: 0px 10px;
+  letter-spacing: 5px;
+  font-size: 12px;
+}

@@ -29,4 +29,21 @@ p, button{
 
 .btn--event-details{
   color: var(--color-orange);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn--event-details:hover{
+  padding: 5px 15px;
+  background-color: var(--color-orange);
+  color: white;
+}
+
+.btn--event-details_hide{
+  color: var(--color-red);
+}
+
+.btn--event-details_hide:hover{
+  background-color: var(--color-red);
 }
