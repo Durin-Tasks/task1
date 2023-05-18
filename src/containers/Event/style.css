@@ -11,22 +11,26 @@
 
 .event .event--infos{
   align-items: center;
-  gap: 30px;
   margin: auto;
   width: 100%;
+  justify-content: center;
 }
 
 .event .event--infos--date{
   flex: 1;
   justify-content: flex-start;
+  min-width: 100px;
+  text-align: left;
+  /* border: solid; */
 }
 
 .event .event--infos--date h1{
-  max-width: 25px;
+  max-width: 20%;
 }
 
 .event .event--infos-right{
   flex: 3;
+  min-width: 400px;
 }
 
 .event .event--infos--details{
@@ -36,8 +40,16 @@
   align-items: flex-start;
 }
 
+.event .event--infos--details h2{
+  width: 100%;
+}
+
 .event .event--infos--details p{
   border-top: solid 1px var(--color-gray);
+}
+
+.event .event--infos--details .event--full-description{
+  display: none;
 }
 
 .event .event--infos--time{
@@ -63,4 +75,88 @@
 
 .event .event--infos p{
   color: var(--color-gray)
+}
+
+@media screen and (max-width: 800px) {
+  .event{
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .event{
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 715px) {
+  .event .event--infos{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .event .event--infos--date{
+    width: unset;
+  }
+  
+  .event .event--infos--date h1{
+    max-width: unset;
+  }
+  
+  .event .event--infos-right{
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .event .event--infos--time p{
+    max-width: 60%;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .event{
+    border-bottom-color: var(--color-white);
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .event .event--infos--date h1 span{
+    display: none;
+  }
+  
+  .event .event--infos-right{
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: unset;
+  }
+
+  .event .event--infos--details{
+    width: 100%;
+  }
+
+  .event .event--infos--details h2{
+    border-bottom: solid 1px var(--color-gray)
+  }
+
+  .event .event--infos--details .event--full-description{
+    display: block;
+  }
+
+  .event .event--infos--details .event--description{
+    display: none;
+  }
+  
+  .event .event--infos--time{
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
+  }
+
+  .event .btn--event-details{
+    display: none;
+  }
+
+  .event .btn--event-details_sc{
+    display: inline-block;
+  }
 }

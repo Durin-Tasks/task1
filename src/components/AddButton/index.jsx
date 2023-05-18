@@ -1,14 +1,15 @@
 import React from 'react'
-import { RiMessageFill } from 'react-icons/ri'
+import { BiMessageAdd } from 'react-icons/bi'
+
 
 import './style.css'
 
 const AddButton = () => {
   return (
-    <div className='flexed add-button'>
+    <button className='flexed add-button'>
       Add Event
-      <RiMessageFill />
-    </div>
+      <BiMessageAdd />
+    </button>
   )
 }
 

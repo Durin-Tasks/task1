@@ -26,7 +26,7 @@ const Header = () => {
   return (
     <header className='flexed'>
       <div className="flexed searcher">
-        <input value={search.key} name="key" onChange={performSearch} type="text" />
+        <input placeholder='Search Event' value={search.key} name="key" onChange={performSearch} type="text" />
         {search.on 
           ? <button>
               <CgClose onClick={closeSearch} />

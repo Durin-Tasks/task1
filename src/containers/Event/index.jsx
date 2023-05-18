@@ -21,7 +21,8 @@ const Event = ({ title, description, date, from, to, address}) => {
         <div className='flexed event--infos-right'>
           <div className="flexed event--infos--details">
             <h2>{title}</h2>
-            <p>{detailsOn ? description : shortDesc}</p>
+            {detailsOn && <p className='event--full-description'>{description}</p>}
+            <p className='event--description'>{detailsOn ? description : shortDesc}</p>
             <button 
               className={`btn--event-details ${detailsOn && "btn--event-details_hide"}`}
               onClick={() => setDetailsOn((d) => !d)}
@@ -36,6 +37,13 @@ const Event = ({ title, description, date, from, to, address}) => {
           </div>
         </div>
       </div>
+      <button 
+        className={`btn--event-details btn--event-details_sc ${detailsOn && "btn--event-details_hide"}`}
+        onClick={() => setDetailsOn((d) => !d)}
+      >
+        {detailsOn ? <BiHide /> : <BiPlus/>}
+        {detailsOn ? "Hide" : "Event"} Details
+      </button>
     </div>
   )
 }
