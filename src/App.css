@@ -9,72 +9,8 @@
   color: white;
 }
 
-.flexed{
-  display: flex;
-  flex-wrap: wrap;
-}
-
-h1{
-  font-size: 20px;
-}
-
-h2{
-  font-size: 14px;
-  font-weight: 400;
-}
-
-p, button{
-  font-size: 12px;
-}
-
-.btn--event-details{
-  color: var(--color-orange);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.btn--event-details:hover{
-  padding: 5px 15px;
-  background-color: var(--color-orange);
-  color: white;
-}
-
-
-.btn--event-details_hide{
-  color: var(--color-red);
-}
-
-.btn--event-details_hide:hover{
-  background-color: var(--color-red);
-}
-
-.btn--event-details_sc{
-  display: none;
-}
-
-@media screen and (max-width: 800px) {
-  h1{
-    font-size: 16px;
-  }
-
-  h2{
-    font-size: 13px;
-    font-weight: 400;
-  }
-}
-
 @media screen and (max-width: 600px) {
-  h1{
-    font-size: 14px;
-  }
-
-  h2{
-    font-size: 12px;
-    font-weight: 400;
-  }
-
-  p, button{
-    font-size: 10px;
+  .App{
+    padding-top: 100px;
   }
 }

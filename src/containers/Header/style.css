@@ -26,3 +26,17 @@ header .searcher svg{
   right: 10px;
   font-size: 1.2rem;
 }
+
+@media screen and (max-width: 600px) {
+  header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+  }
+}
+
+@media screen and (max-width: 500px){
+  header .searcher{
+    width: 90%;
+  }
+}

@@ -1,5 +1,5 @@
 import { Event, Header } from './containers';
-import { EventFlag } from './components'
+import { AddButton, EventFlag } from './components'
 
 import './App.css';
 
