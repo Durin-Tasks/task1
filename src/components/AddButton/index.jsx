@@ -3,9 +3,9 @@ import { BiMessageAdd } from 'react-icons/bi'
 
 import './style.css'
 
-const AddButton = () => {
+const AddButton = ({ handleClick }) => {
   return (
-    <button className='flexed add-button'>
+    <button className='flexed add-button' onClick={handleClick}>
       <span>Add Event</span>
       <BiMessageAdd />
     </button>

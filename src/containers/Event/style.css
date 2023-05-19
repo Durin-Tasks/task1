@@ -157,6 +157,6 @@
   }
 
   .event .btn--event-details_sc{
-    display: inline-block;
+    display: flex;
   }
 }

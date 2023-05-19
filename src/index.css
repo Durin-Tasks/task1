@@ -52,6 +52,37 @@ input, textarea{
   border-radius: 10px;
   border: unset;
   stroke: unset;
+  font-family: inherit;
+}
+
+.input-row input,
+input.input-row,
+textarea.input-row,
+input.input-set,
+textarea.input-set{
+  border: solid 1px var(--color-gray);
+}
+
+input.input-row{
+  height: 50px;
+}
+
+textarea.input-row{
+  height: 100px;
+}
+
+div.input-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+div.input-row .input-set{
+  width: calc(50% - 15px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 svg {
