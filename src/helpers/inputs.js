@@ -1,9 +1,3 @@
-export function handleChange(e, setState){
-  const {name, value} = e.target;
-
-  setState((state) => ({ ...state, [name]: value }))
-}
-
 export function checkFields(object) {
   let entries = Object.entries(object)
   let result = true

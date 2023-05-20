@@ -1,17 +1,16 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 
 import { Event, Header } from './containers';
 import { EventFlag, GoToTop } from './components'
 
 import './App.css';
-
-import events from './Datas/events';
+import { EventsContext } from './context';
 
 function App() {
-  const [allEvents, setAllEvents] = useState(events)
+  const { allEvents } = useContext(EventsContext)
   return (
     <div className="App" id='app'>
-      <Header setEvents={setAllEvents} />
+      <Header />
       <EventFlag />
       <div>
         {allEvents.map((event, index) => (

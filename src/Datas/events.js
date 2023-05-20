@@ -1,4 +1,4 @@
-const events = [
+export const events = [
   {
     title: "Sunday Supper Club",
     description: "A culinary event with foods from all over the world. This is a weekly club you can join for a small fee. Learn cooking methods from top chef. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis eveniet non sed, pariatur cum nam sequi nihil culpa autem vitae sit. Praesentium, omnis. Sit aliquam laboriosam quia, rem nisi officiis!",
@@ -34,4 +34,14 @@ const events = [
   },
 ]
 
-export default events;
+export const initEvent = {
+  title: "",
+  description: "",
+  date: {
+    day: "",
+    month: ""
+  },
+  from: "",
+  to: "",
+  address: ""
+}

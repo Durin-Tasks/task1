@@ -1,37 +1,24 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { BiSearch } from 'react-icons/bi'
 import { CgClose } from 'react-icons/cg'
 import { AddButton } from '../../components'
+import { EventsContext } from '../../context'
 
 import AddEvent from '../AddEvent'
 
-import { handleChange } from '../../helpers/inputs'
-
 import './style.css'
 
-const Header = ({setEvents}) => {
+const Header = () => {
+  const { eventOn, openEvent } = useContext(EventsContext)
+
   const [search, setSearch] = useState({
     key: "",
     message: "",
     on: false
   })
 
-  const [eventOn, setEventOn] = useState(false)
-  const [newEvent, setNewEvent] = useState({
-    title: "",
-    description: "",
-    date: {
-      day: "",
-      month: ""
-    },
-    from: "",
-    to: "",
-    address: ""
-  })
-
-  function performSearch(e){
-    handleChange(e, setSearch);
-    setSearch((search) => ({ ...search, on: true }))
+  function performSearch(e) {
+    setSearch((search) => ({ ...search, on: true, key: e.target.value }))
   }
 
   function closeSearch(){
@@ -50,15 +37,10 @@ const Header = ({setEvents}) => {
         }
       </div>
       <AddButton 
-        handleClick={() => setEventOn(true)}
+        handleClick={openEvent}
       />
       {eventOn && 
-        <AddEvent 
-          handleClose={() => setEventOn(false)}
-          event={newEvent}
-          setEvent={setNewEvent}
-          setEvents={setEvents}
-        />
+        <AddEvent />
       }
     </header>
   )

@@ -1,62 +1,26 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { BsLightbulb } from 'react-icons/bs'
 import './style.css'
 
-import { checkFields, handleChange } from '../../helpers/inputs.js'
+import { EventsContext } from '../../context'
 
-const AddEvent = ({handleClose, event, setEvent, setEvents}) => {
-
-  function changeDate(e) {
-    const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUNE", "JULLY", "AUG", "SEPT", "OCT", "NOV", "DEC"]
-    const date = new Date(e.target.value)
-    const day = date?.getDate()
-    const month = date?.getMonth()
-    console.log(date, day, month)
-    setEvent((event) => ({ ...event, date: { day, month: months[month] } }))
-  }
-
-  function changeTime(e){
-    if(event.to !== ""){
-      e.target.value < event.from
-      ? handleChange(e, setEvent)
-      : alert("From date has to be less than to date !")
-    } else {
-      handleChange(e, setEvent)
-    }
-  }
-
-  function changeEndTime(e){
-    if(event.from !== ""){
-      e.target.value > event.from
-      ? handleChange(e, setEvent)
-      : alert("To date has to be greater than from date !")
-    } else {
-      handleChange(e, setEvent)
-    }
-  }
-
-  function handleAddEvent() {
-    const fields = {
-      title: event.title, 
-      description: event.description, 
-      from: event.from, 
-      to: event.to, 
-      address: event.address,
-      day: event.date.day,
-      month: event.date.month
-    }
-
-    if (checkFields(fields)) {
-      setEvents((events) => ([...events, event]))
-      handleClose()
-    }
-  }
+const AddEvent = () => {
+  
+  const {
+    closeEvent,
+    event,
+    changeEvent,
+    addEvent,
+    changeDate,
+    changeTime,
+    changeEndTime
+  } = useContext(EventsContext)
   
   return (
     <div className='add-event'>
       <div 
         className='add-event--bg-closer'
-        onClick={handleClose}>
+        onClick={closeEvent}>
       </div>
       <div className='add-event--content'>
         <div className="add-event--header">
@@ -66,16 +30,16 @@ const AddEvent = ({handleClose, event, setEvent, setEvents}) => {
         <form>
           <input
             className='input-row' 
-            value={event.title}
-            onChange={(e) => handleChange(e, setEvent)}
+            value={event?.title}
+            onChange={changeEvent}
             placeholder='Event Title' 
             type="text" 
             name="title" 
             id="" />
           <textarea
             className='input-row' 
-            value={event.description}
-            onChange={(e) => handleChange(e, setEvent)}
+            value={event?.description}
+            onChange={changeEvent}
             placeholder='Event Description'
             type="text" 
             name="description" 
@@ -95,7 +59,7 @@ const AddEvent = ({handleClose, event, setEvent, setEvents}) => {
                 placeholder='Event From'
                 type="time" 
                 name="from" 
-                value={event.from}
+                value={event?.from}
                 onChange={changeTime}
                 id="from"/>
             </div>
@@ -106,23 +70,23 @@ const AddEvent = ({handleClose, event, setEvent, setEvents}) => {
                 placeholder='Event To'
                 type="time" 
                 name="to"
-                value={event.to}
+                value={event?.to}
                 onChange={changeEndTime}
                 id="to" />
             </div>
           </div>
           <input
             className='input-row'
-            value={event.address}
-            onChange={(e) => handleChange(e, setEvent)}
+            value={event?.address}
+            onChange={changeEvent}
             placeholder='Event Address'
             type="text" 
             name="address" 
             id="" />
         </form>
         <div className="add-event--footer">
-          <button onClick={handleAddEvent}>Confirmer</button>
-          <button onClick={handleClose}>Annuler</button>
+          <button onClick={addEvent}>Confirmer</button>
+          <button onClick={closeEvent}>Annuler</button>
         </div>
       </div>
     </div>
