@@ -85,8 +85,8 @@ const AddEvent = () => {
             id="" />
         </form>
         <div className="add-event--footer">
-          <button onClick={addEvent}>Confirmer</button>
-          <button onClick={closeEvent}>Annuler</button>
+          <button onClick={addEvent}>Submit</button>
+          <button onClick={closeEvent}>Cancel</button>
         </div>
       </div>
     </div>
