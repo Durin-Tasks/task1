@@ -9,7 +9,7 @@ import { handleChange } from '../../helpers/inputs'
 
 import './style.css'
 
-const Header = () => {
+const Header = ({setEvents}) => {
   const [search, setSearch] = useState({
     key: "",
     message: "",
@@ -18,24 +18,22 @@ const Header = () => {
 
   const [eventOn, setEventOn] = useState(false)
   const [newEvent, setNewEvent] = useState({
-    on: false, 
-    form: {
-      title: "",
-      description: "",
-      date: {
-        day: "",
-        month: ""
-      },
-      from: "",
-      to: "",
-      address: ""
-    }
+    title: "",
+    description: "",
+    date: {
+      day: "",
+      month: ""
+    },
+    from: "",
+    to: "",
+    address: ""
   })
 
   function performSearch(e){
     handleChange(e, setSearch);
     setSearch((search) => ({ ...search, on: true }))
   }
+
   function closeSearch(){
     setSearch((search) => ({ ...search, on: false, key: "" }));
   }
@@ -59,6 +57,7 @@ const Header = () => {
           handleClose={() => setEventOn(false)}
           event={newEvent}
           setEvent={setNewEvent}
+          setEvents={setEvents}
         />
       }
     </header>

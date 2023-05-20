@@ -1,4 +1,4 @@
-export default function(text, amount){
+function textCutter(text, amount){
 
   // we split the text into words stored in a array
   const words = text.split(" ");
@@ -13,3 +13,5 @@ export default function(text, amount){
     return _text
   }
 }
+
+export default textCutter();

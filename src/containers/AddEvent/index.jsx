@@ -1,42 +1,55 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { BsLightbulb } from 'react-icons/bs'
 import './style.css'
 
-import { handleChange } from '../../helpers/inputs.js'
+import { checkFields, handleChange } from '../../helpers/inputs.js'
 
-const AddEvent = ({handleClose, event, setEvent}) => {
-  const [unparsedDatas, setUnparsedData] = useState({
-    date: "",
-    from: "",
-    to: ""
-  })
+const AddEvent = ({handleClose, event, setEvent, setEvents}) => {
 
-  function changeDate(e){
-    handleChange(e, setUnparsedData)
+  function changeDate(e) {
+    const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUNE", "JULLY", "AUG", "SEPT", "OCT", "NOV", "DEC"]
+    const date = new Date(e.target.value)
+    const day = date?.getDate()
+    const month = date?.getMonth()
+    console.log(date, day, month)
+    setEvent((event) => ({ ...event, date: { day, month: months[month] } }))
   }
 
   function changeTime(e){
-    if(unparsedDatas.to !== ""){
-      e.target.value < unparsedDatas.from
-      ? handleChange(e, setUnparsedData)
+    if(event.to !== ""){
+      e.target.value < event.from
+      ? handleChange(e, setEvent)
       : alert("From date has to be less than to date !")
     } else {
-      handleChange(e, setUnparsedData)
+      handleChange(e, setEvent)
     }
   }
 
   function changeEndTime(e){
-    if(unparsedDatas.from !== ""){
-      e.target.value > unparsedDatas.from
-      ? handleChange(e, setUnparsedData)
+    if(event.from !== ""){
+      e.target.value > event.from
+      ? handleChange(e, setEvent)
       : alert("To date has to be greater than from date !")
     } else {
-      handleChange(e, setUnparsedData)
+      handleChange(e, setEvent)
     }
   }
 
-  function handleAddEvent(){
-    alert("event added !")
+  function handleAddEvent() {
+    const fields = {
+      title: event.title, 
+      description: event.description, 
+      from: event.from, 
+      to: event.to, 
+      address: event.address,
+      day: event.date.day,
+      month: event.date.month
+    }
+
+    if (checkFields(fields)) {
+      setEvents((events) => ([...events, event]))
+      handleClose()
+    }
   }
   
   return (
@@ -71,8 +84,7 @@ const AddEvent = ({handleClose, event, setEvent}) => {
             className='input-row' 
             placeholder='Event Date'
             type="date" 
-            name="date" 
-            value={unparsedDatas.date}
+            name="date"
             onChange={changeDate}
             id="" />
           <div className="flexed input-row">
@@ -83,7 +95,7 @@ const AddEvent = ({handleClose, event, setEvent}) => {
                 placeholder='Event From'
                 type="time" 
                 name="from" 
-                value={unparsedDatas.from}
+                value={event.from}
                 onChange={changeTime}
                 id="from"/>
             </div>
@@ -94,7 +106,7 @@ const AddEvent = ({handleClose, event, setEvent}) => {
                 placeholder='Event To'
                 type="time" 
                 name="to"
-                value={unparsedDatas.to}
+                value={event.to}
                 onChange={changeEndTime}
                 id="to" />
             </div>

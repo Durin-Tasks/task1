@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { BiHide, BiLineChart, BiPlus } from 'react-icons/bi'
+import { BiHide, BiPlus } from 'react-icons/bi'
 import textCutter from '../../helpers/textCutter'
 
 import './style.css'
